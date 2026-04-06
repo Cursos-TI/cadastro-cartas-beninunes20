@@ -21,7 +21,7 @@ int main()
   unsigned long int população2;
 
   // Variaveis de menu
-  int opcao;
+  int opcao1, opcao2, resultado1 , resultado2;
 
 
   // Área para entrada de dados
@@ -124,29 +124,25 @@ int main()
   /*Menu iterativo com switch*/
   //menu
   printf("\n**** Super Trunfo ****\n");
-  printf("Ecolha o atributo de comparação:\n");
+  printf("Ecolha o atributo de comparação 01:\n");
   printf("1- População\n");
   printf("2- Área\n");
   printf("3- PIB\n");
   printf("4- Número de pontos turísticos\n");
   printf("5- Densidade Demográfica\n");
-  scanf("%d", &opcao);
 
-  // switch
-  switch (opcao)
+  printf("Realize sua escolha:");
+  scanf("%d", &opcao1);
+
+  // switch 01
+  switch (opcao1)
   {
   case 1:
   // comparação da população
     printf("\nComparação do atributo população\n");
     printf("Carta 1 - %s: %ld \n", nome_da_cidade, população);
     printf("Carta 2 - %s: %ld \n", nome_da_cidade2, população2);
-    if(população > população2){
-    printf("*** Carta 1 - %s venceu!!! ***\n",nome_da_cidade);
-  }else if(população < população2){
-    printf("*** Carta 2 - %s venceu!!! ***\n",nome_da_cidade2);
-  }else{
-    printf("Houve um empate!!!\n");
-  }
+    resultado1 = população > população2 ? 1 : 0;
     break;
 
   case 2:
@@ -154,13 +150,7 @@ int main()
     printf("\nComparação do atributo área\n");
     printf("Carta 1 - %s: %.2f \n", nome_da_cidade, area);
     printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, area2);
-    if(area > area2){
-      printf("*** Carta 1 - %s venceu!!! ***\n",nome_da_cidade);
-    }else if (area < area2){
-      printf("*** Carta 2 - %s venceu!!! ***\n",nome_da_cidade2);
-    }else{
-      printf("Houve um empate!!!\n");
-    }
+    resultado1 = area > area2 ? 1 : 0;
 
     break;
 
@@ -169,13 +159,7 @@ int main()
     printf("\nComparação do atributo PIB\n");
     printf("Carta 1 - %s: %.2f \n", nome_da_cidade, pib);
     printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, pib2);
-    if(pib > pib2){
-      printf("*** Carta 1 - %s venceu!!! ***\n",nome_da_cidade);
-    }else if(pib < pib2) {
-      printf("*** Carta 2 - %s venceu!!! ***\n",nome_da_cidade2);
-    }else{
-      printf("Houve um empate!!!\n");
-    }
+    resultado1 = pib > pib2 ? 1 : 0;
     break;
 
   case 4:
@@ -183,13 +167,7 @@ int main()
     printf("\nComparação do atributo número de pontos turísticos\n");
     printf("Carta 1 - %s: %.d \n", nome_da_cidade, numero_de_pontos_turisticos);
     printf("Carta 2 - %s: %.d \n", nome_da_cidade2, numero_de_pontos_turisticos2);
-    if(numero_de_pontos_turisticos > numero_de_pontos_turisticos2){
-      printf("*** Carta 1 - %s venceu!!! ***\n",nome_da_cidade);
-    }else if (numero_de_pontos_turisticos < numero_de_pontos_turisticos2){
-      printf("*** Carta 2 - %s venceu!!! ***\n",nome_da_cidade2);
-    }else{
-      printf("Houve um empate!!!\n");
-    }
+    resultado1 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
     break;
 
   case 5:
@@ -197,18 +175,86 @@ int main()
     printf("\nComparação do atributo densidade populacional\n");
     printf("Carta 1 - %s: %.2f \n", nome_da_cidade, densidade_populacional);
     printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, densidade_populacional2);
-    if(densidade_populacional < densidade_populacional2){
-      printf("*** Carta 1 - %s venceu!!! ***\n",nome_da_cidade);
-    }else if(densidade_populacional > densidade_populacional2) {
-      printf("*** Carta 2 - %s venceu!!! ***\n",nome_da_cidade2);
-    }else{
-      printf("Houve um empate!!!\n");
-    }
-      break;
+    resultado1 = densidade_populacional < densidade_populacional2 ? 1 : 0;
+    break;
 
   default:
     printf("Você digitou um valor inválido!!!");
     break;
+  }
+
+  printf("\nEcolha o atributo de comparação 02:\n");
+  printf("1- População\n");
+  printf("2- Área\n");
+  printf("3- PIB\n");
+  printf("4- Número de pontos turísticos\n");
+  printf("5- Densidade Demográfica\n");
+
+  printf("Realize sua escolha:");
+  scanf("%d", &opcao2);
+
+  if (opcao1 == opcao2){
+    printf("Você já escolheu esse atributo!!!");
+  }
+  else{
+    // Switch 02
+    switch (opcao2)
+    {
+    case 1:
+    // comparação da população
+      printf("\nComparação do atributo população\n");
+      printf("Carta 1 - %s: %ld \n", nome_da_cidade, população);
+      printf("Carta 2 - %s: %ld \n", nome_da_cidade2, população2);
+      resultado2 = população > população2 ? 1 : 0;
+      break;
+
+    case 2:
+      // comparação da área
+      printf("\nComparação do atributo área\n");
+      printf("Carta 1 - %s: %.2f \n", nome_da_cidade, area);
+      printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, area2);
+      resultado2 = area > area2 ? 1 : 0;
+
+      break;
+
+    case 3:
+      // comparação da PIB
+      printf("\nComparação do atributo PIB\n");
+      printf("Carta 1 - %s: %.2f \n", nome_da_cidade, pib);
+      printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, pib2);
+      resultado2 = pib > pib2 ? 1 : 0;
+      break;
+
+    case 4:
+      // comparação de número de pontos turísticos
+      printf("\nComparação do atributo número de pontos turísticos\n");
+      printf("Carta 1 - %s: %.d \n", nome_da_cidade, numero_de_pontos_turisticos);
+      printf("Carta 2 - %s: %.d \n", nome_da_cidade2, numero_de_pontos_turisticos2);
+      resultado2 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+      break;
+
+    case 5:
+      // comparação da densidade populacional
+      printf("\nComparação do atributo densidade populacional\n");
+      printf("Carta 1 - %s: %.2f \n", nome_da_cidade, densidade_populacional);
+      printf("Carta 2 - %s: %.2f \n", nome_da_cidade2, densidade_populacional2);
+      resultado2 = densidade_populacional < densidade_populacional2 ? 1 : 0;
+      break;
+
+    default:
+      printf("Você digitou um valor inválido!!!");
+      break;
+    }
+
+
+    if (resultado1 && resultado2){
+    printf("\n**** Parabêns você venceu!!! ****\n");
+    }else if (resultado1 != resultado2){
+    printf("\nHouve um empate\n");
+    }else{
+    printf("\nInfelizmente você perdeu\n");
+    }
+
   }
 
   return 0;
